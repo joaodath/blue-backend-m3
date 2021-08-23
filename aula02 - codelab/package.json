@@ -1,0 +1,15 @@
+{
+  "name": "aula02-codelab",
+  "version": "1.0.0",
+  "description": "Exercícios do codelab da aula 02",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "João Rodrigues",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
