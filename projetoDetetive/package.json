@@ -1,0 +1,15 @@
+{
+  "name": "projeto01-detetive",
+  "version": "1.0.0",
+  "description": "a small js program to check whether someone being investigated is the killer of somebody else",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Joao Rodrigues @joaodath",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
