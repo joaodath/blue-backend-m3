@@ -1,8 +1,4 @@
 const express = require('express');
-//connects to database at MongoDB
-// const mongoose = require('mongoose');
-// const Games = require('./models/games');
-// const functionsLibrary = require('./functionsLibrary');
 
 //Initializes the server
 const app = express();
@@ -26,9 +22,6 @@ app.use(putGames);
 app.use(patchGames); 
 app.use('/games', postGames); 
 app.use(deleteGames); 
-
-//imports gameList from gameList.js and loads it in a constant gameList
-// const {gameList} = require('./gameList');
 
 app.listen(port, () => {
     console.log(`
