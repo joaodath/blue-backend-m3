@@ -2,18 +2,19 @@ const router = require('express').Router();
 const functionsLibrary = require('../functionsLibrary');
 
 //connects to database at MongoDB
-const mongoose = require('mongoose');
-const GamesSchema = require('../models/games');
+const Games = require('../models/games');
 
 //DELETE /games/:id - deletes a game with the id passed in the url
 //router.delete('/games/:id', (req, res) => {
-router.delete('/', (req, res) => {
-    const id = +req.params.id;
-    const game = gameList[id];
-    
-    !game ? res.status(404).json({error: 'Game not found!'}) : gameList.splice(id, 1);
+router.delete('/games/:id', async (req, res) => {
+    //checks if id passed is valid
+    const id = req.params.id;
+    functionsLibrary.checkId(id, res);
+    await functionsLibrary.doesItExist(Games, id, res);
 
-    res.status(204).json({success: `Game ${game.name} deleted!`});
+    await Games.findByIdAndDelete(id);
+    
+    res.status(204).json({success: "Game deleted!"});
 });
 
 module.exports = router;

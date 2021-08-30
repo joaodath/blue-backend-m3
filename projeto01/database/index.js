@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/db_filmes', {
+require('dotenv').config()
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.DB_CONNECTION_ATLAS, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -8,9 +9,5 @@ mongoose.connect('mongodb://localhost:27017/db_filmes', {
 }).catch((err) => {
     console.log('Connection error: ' + err);
 });
-
-// mongoose.connection.on('error', err => {
-//     throw 'failed connect to MongoDB';
-//   });
 
 module.exports = mongoose;

@@ -3,7 +3,7 @@ const functionsLibrary = require('../functionsLibrary');
 
 //connects to database at MongoDB
 const mongoose = require('mongoose');
-const GamesSchema = require('./models/games');
+const Games = require('./models/games');
 
 //imports docAPI from docAPI.js and loads it in a constant docAPI
 //TODO: docAPI.js is not yet written
