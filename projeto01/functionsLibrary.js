@@ -93,13 +93,6 @@ function testFunction() {
     console.log('I\'m okay!');
 }
 
-/** async function testDoesItExist(modelName) {
-    const model = './models/' + `${modelName}`;
-    const modelExists = require(model);
-    console.log(model);
-}
-**/
-
 module.exports = {
     sanitizeGameInput,
     sanitizeGamePatch,
