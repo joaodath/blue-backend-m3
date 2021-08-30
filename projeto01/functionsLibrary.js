@@ -15,7 +15,7 @@ function sanitizeGameInput(input) {
 return gameClean;
 };
 
-//Function to sanitize the input from patch
+//Function to sanitize the input from patch while on list (memory CRUD)
 function sanitizeGamePatchOld(input, gameOriginal) {
     const gameClean = {
     'name': input.name? input.name : gameOriginal.name,
@@ -30,36 +30,42 @@ function sanitizeGamePatchOld(input, gameOriginal) {
 };
 
 //Function to sanitize the input from patch
+//This way, only the data allowed will be updated. The user won't be able to 
+//update the id or send new fields.
 function sanitizeGamePatch(input) {
+    const output = {};
     if (input.name) {
-        input.name = (input.name).toString();
+        output.name = (input.name).toString();
     }
 
     if (input.release) {
-        input.release = (input.release).toString();
+        output.release = (input.release).toString();
     }
 
     if (input.developer) {
-        input.developer = (input.developer).toString();
+        output.developer = (input.developer).toString();
     }
 
     if (input.genre) {
-        input.genre = (input.genre).toString();
+        output.genre = (input.genre).toString();
     }
 
     if (input.players) {
-        input.players = +input.players;
+        output.players = +input.players;
     }
 
     if (input.img) {
-        input.img = (input.img).toString();
+        output.img = (input.img).toString();
     }
 
     if (input.platform) {
-        input.platform = (input.platform).toString();
+        output.platform = (input.platform).toString();
     }
-
-    return input;
+    console.log(input);
+    console.log(output);
+    console.log(typeof input);
+    console.log(typeof output);
+    return output;
 };
 
 //Checks the json object (input) for empty fields
