@@ -1,15 +1,10 @@
 //Function to sanitize the input
 function sanitizeObjectInput(input) {
-    const gameClean = {
-    'name': input.name,
-    'release': input.release, 
-    'developer': input.developer,
-    'genre': input.genre,
-    'players': input.players,
-    'img': input.img,
-    'platform': input.platform
+    const objectClean = {
+    'nome': input.nome,
+    'imagemUrl': input.imagemUrl
     };
-return gameClean;
+    return objectClean;
 };
 
 //Function to sanitize the input from patch
@@ -17,34 +12,18 @@ return gameClean;
 //update the id or send new fields.
 function sanitizeObjectPatch(input) {
     const output = {};
-    if (input.name) {
-        output.name = (input.name).toString();
+    if (input.nome) {
+        output.nome = (input.nome).toString();
     }
-    if (input.release) {
-        output.release = (input.release).toString();
+    if (input.imagemUrl) {
+        output.imagemUrl = (input.imagemUrl).toString();
     }
-    if (input.developer) {
-        output.developer = (input.developer).toString();
-    }
-    if (input.genre) {
-        output.genre = (input.genre).toString();
-    }
-    if (input.players) {
-        output.players = (input.players).toString();
-    }
-    if (input.img) {
-        output.img = (input.img).toString();
-    }
-    if (input.platform) {
-        output.platform = (input.platform).toString();
-    }
-    
     return output;
 };
 
 //Checks the json object (input) for empty fields
 function checkEmptyInput(input, res) {
-    if (!input || !input.name || !input.release || !input.developer || !input.genre || !input.players || !input.img || !input.platform) {
+    if (!input || !input.nome || !input.imagemUrl) {
         res.status(400).json({error: `All fields are required! Refer to documentation`});
         return;
     }
@@ -68,6 +47,19 @@ async function doesItExist(id) {
     return objectReturn; 
 }
 
+function testFunction() {
+    console.log('I\'m okay!');
+}
+
+module.exports = {
+    sanitizeObjectInput,
+    sanitizeObjectPatch,
+    checkEmptyInput,
+    checkId,
+    doesItExist,
+    testFunction
+};
+
 // async function doesItPatch(id, res) {
 //     //Checks if the object with given id exists and returns the object if found or else returns and error
 //     const { charactersRM, ObjectId } = require('./database/mongodbConnection');
@@ -81,19 +73,6 @@ async function doesItExist(id) {
 //     }
 
 // }
-
-function testFunction() {
-    console.log('I\'m okay!');
-}
-
-module.exports = {
-    sanitizeObjectInput,
-    sanitizeObjectPatch,
-    checkEmptyInput,
-    checkId,
-    doesItExist,
-    testFunction
-};
 
 
 /*
