@@ -1,10 +1,9 @@
 const express = require('express');
-const { post } = require('./routes/deleteCharacter');
 const dotenv = require('dotenv').config();
 
 //Initializes the server
 const app = express();
-const port = process.env.PORT || 7001;
+const port = process.env.PORT || 7000;
 
 app.use(express.json());
 
@@ -22,7 +21,7 @@ const postCharacter = require('./routes/postCharacter');
 const putCharacter = require('./routes/putCharacter');
 
 //consumes the routes
-app.use(getAllCharacters);
+app.use("/characters", getAllCharacters);
 app.use(getCharacter);
 app.use(postCharacter);
 app.use(putCharacter);
@@ -31,8 +30,8 @@ app.use(deleteCharacter);
 //error middlewares
 const endpointNotFound = require('./middlewares/err404');
 app.use(endpointNotFound);
-const error500 = require('./middlewares/err500');
-app.use(error500);
+// const error500 = require('./middlewares/err500');
+// app.use(error500);
 
 app.listen(port, () => {
     console.log(
