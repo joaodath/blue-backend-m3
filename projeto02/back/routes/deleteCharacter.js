@@ -8,7 +8,7 @@ router.delete('/characters/:id', async (req, res) => {
     checkId(id);
 
     await dbconnect();
-    let isADocument = doesItExist(id)
+    let isADocument = await doesItExist(id)
     if (!isADocument) {
         res.status(404).json({"response": "character not found!"})
     }

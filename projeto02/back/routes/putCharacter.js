@@ -8,7 +8,7 @@ router.put('/characters/:id', async (req, res) => {
     checkId(id, res);
 
     await dbconnect();
-    let isADocument = doesItExist(id);
+    let isADocument = await doesItExist(id);
     
     let incomingObject = req.body;
     checkEmptyInput(incomingObject);

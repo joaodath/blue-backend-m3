@@ -9,7 +9,7 @@ router.get('/characters/:id', async (req, res) => {
     checkId(id);
 
     await dbconnect();
-    let character = doesItExist(id);
+    let character = await doesItExist(id);
     character ? res.send(character) : res.status(404).json({"response": "character not found!"});
     await dbclose();
 });
