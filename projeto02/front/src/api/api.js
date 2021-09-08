@@ -1,14 +1,14 @@
 export const Api = {
-	baseUrl: "http://localhost:3000/personagens",
+	baseUrl: "http://localhost:7000",
 
-	createUrl: () => Api.baseUrl + "/",
+	createUrl: () => Api.baseUrl + "/characters",
 
-	readAllUrl: () => Api.baseUrl + "/",
-	readSingleUrl: (id) => Api.baseUrl + "/" + id,
+	readAllUrl: () => Api.baseUrl + "/characters",
+	readSingleUrl: (id) => Api.baseUrl + "/characters/" + id,
 
-	updateUrl: (id) => Api.baseUrl + "/" + id,
+	updateUrl: (id) => Api.baseUrl + "/characters/" + id,
 
-	deleteUrl: (id) => Api.baseUrl + "/" + id,
+	deleteUrl: (id) => Api.baseUrl + "/characters/" + id,
 	deleteAllUrl: () => Api.baseUrl + "/",
 
 	// Create
