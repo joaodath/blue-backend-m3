@@ -22,7 +22,7 @@ async function dbclose() {
     await client.close(false, () => console.log('connection to MongoDB-mongodbdriver closed'));
 }
 
-client.connect();
+//client.connect();
 
 module.exports = {
     client,

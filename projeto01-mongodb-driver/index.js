@@ -8,8 +8,15 @@ const serverAddress = `http://localhost:${port}`;
 
 app.use(express.json())
 
+//enabling CORS
+var cors = require("cors");
+app.use(cors());
+app.options("*", cors());
+
+
 //imports the routes
 const getAllGames = require('./routes/getAllGames');
+const getAllCharacters = require('./routes/getAllCharacters')
 const getGameByID = require('./routes/getGameByID');
 const putGames = require('./routes/putGames');
 const patchGames = require('./routes/patchGames');
@@ -17,7 +24,8 @@ const postGames = require('./routes/postGames');
 const deleteGames = require('./routes/deleteGames');
 
 //consumes the routes
-app.use('/games', getAllGames); 
+app.use('/games', getAllGames);
+app.use('/characters', getAllCharacters);
 app.use(getGameByID); 
 app.use(putGames); 
 app.use(patchGames); 

@@ -1,6 +1,3 @@
-//importing requirements
-const mongoose = require('mongoose');
-
 //Function to sanitize the input
 function sanitizeGameInput(input) {
     const gameClean = {
